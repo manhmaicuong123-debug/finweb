@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Finance VN - Giải pháp tài chính online</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Be Vietnam Pro',sans-serif;
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+.bg{
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top left,#2563eb 0%,transparent 30%),
+    radial-gradient(circle at bottom right,#7c3aed 0%,transparent 35%),
+    radial-gradient(circle at center,#0ea5e9 0%,transparent 20%),
+    linear-gradient(135deg,#020617,#0f172a,#111827);
+    z-index:-1;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:999;
+    background:rgba(2,6,23,0.7);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.nav-wrap{
+    width:95%;
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:800;
+    background:linear-gradient(90deg,#60a5fa,#a78bfa,#22d3ee);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.menu{
+    display:flex;
+    gap:28px;
+}
+
+.menu a{
+    color:#cbd5e1;
+    text-decoration:none;
+    transition:0.3s;
+    font-size:15px;
+}
+
+.menu a:hover{
+    color:white;
+}
+
+/* HERO */
+
+.hero{
+    width:95%;
+    max-width:1200px;
+    margin:auto;
+    min-height:90vh;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    align-items:center;
+    gap:40px;
+    padding:40px 0;
+}
+
+.hero-text h1{
+    font-size:64px;
+    line-height:1.1;
+    margin-bottom:24px;
+    font-weight:800;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#60a5fa,#a78bfa,#22d3ee);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-text p{
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:17px;
+    margin-bottom:30px;
+}
+
+.hero-btns{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 28px;
+    border-radius:16px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.btn-secondary{
+    border:1px solid rgba(255,255,255,0.12);
+    background:rgba(255,255,255,0.04);
+    color:white;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+/* HERO CARD */
+
+.hero-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:30px;
+    padding:35px;
+    backdrop-filter:blur(16px);
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-card::before{
+    content:'';
+    position:absolute;
+    width:160px;
+    height:160px;
+    background:rgba(255,255,255,0.05);
+    border-radius:50%;
+    top:-60px;
+    right:-60px;
+}
+
+.hero-card h3{
+    font-size:32px;
+    margin-bottom:18px;
+}
+
+.hero-card p{
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:25px;
+}
+
+.stat{
+    background:rgba(255,255,255,0.05);
+    border-radius:18px;
+    padding:20px;
+    text-align:center;
+}
+
+.stat h2{
+    font-size:28px;
+    margin-bottom:5px;
+}
+
+.stat span{
+    color:#cbd5e1;
+    font-size:13px;
+}
+
+/* CONTAINER */
+
+.container{
+    width:95%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* TITLE */
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:42px;
+    margin-bottom:14px;
+}
+
+.section-title p{
+    color:#cbd5e1;
+    line-height:1.8;
+    max-width:700px;
+    margin:auto;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:24px;
+    margin-bottom:100px;
+}
+
+.feature{
+    background:rgba(255,255,255,0.05);
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,0.08);
+    padding:30px;
+    transition:0.3s;
+}
+
+.feature:hover{
+    transform:translateY(-6px);
+    border-color:#60a5fa;
+}
+
+.feature-icon{
+    font-size:42px;
+    margin-bottom:18px;
+}
+
+.feature h3{
+    margin-bottom:12px;
+    font-size:22px;
+}
+
+.feature p{
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+/* SERVICES */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:24px;
+    margin-bottom:100px;
+}
+
+.service-card{
+    background:rgba(255,255,255,0.06);
+    border-radius:28px;
+    border:1px solid rgba(255,255,255,0.08);
+    padding:30px;
+    transition:0.35s;
+    backdrop-filter:blur(14px);
+}
+
+.service-card:hover{
+    transform:translateY(-6px);
+    border-color:#60a5fa;
+}
+
+.tag{
+    display:inline-block;
+    padding:7px 14px;
+    border-radius:999px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    font-size:12px;
+    margin-bottom:18px;
+}
+
+.service-card h3{
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.service-card ul{
+    list-style:none;
+    margin-bottom:25px;
+}
+
+.service-card ul li{
+    margin-bottom:12px;
+    color:#dbeafe;
+    line-height:1.7;
+}
+
+.card-btn{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    color:white;
+    padding:15px;
+    border-radius:16px;
+    font-weight:600;
+    background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+    transition:0.3s;
+}
+
+.card-btn:hover{
+    transform:scale(1.03);
+}
+
+/* PROCESS */
+
+.process{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:24px;
+    margin-bottom:100px;
+}
+
+.process-box{
+    background:rgba(255,255,255,0.05);
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,0.08);
+    padding:30px;
+    text-align:center;
+}
+
+.process-number{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:auto;
+    margin-bottom:18px;
+    font-size:24px;
+    font-weight:700;
+}
+
+.process-box p{
+    color:#cbd5e1;
+    line-height:1.8;
+    margin-top:10px;
+}
+
+/* REVIEWS */
+
+.review-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:24px;
+    margin-bottom:100px;
+}
+
+.review{
+    background:rgba(255,255,255,0.05);
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,0.08);
+    padding:28px;
+}
+
+.review p{
+    color:#dbeafe;
+    line-height:1.8;
+    margin:16px 0;
+}
+
+/* CTA */
+
+.cta{
+    background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(124,58,237,0.2));
+    border-radius:32px;
+    border:1px solid rgba(255,255,255,0.08);
+    padding:60px 30px;
+    text-align:center;
+    margin-bottom:80px;
+}
+
+.cta h2{
+    font-size:42px;
+    margin-bottom:18px;
+}
+
+.cta p{
+    color:#cbd5e1;
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    padding:40px 20px;
+    color:#94a3b8;
+    border-top:1px solid rgba(255,255,255,0.08);
+    line-height:1.8;
+    font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero-text h1{
+    font-size:46px;
+}
+
+.section-title h2{
+    font-size:32px;
+}
+
+.cta h2{
+    font-size:34px;
+}
+
+.menu{
+    display:none;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="nav-wrap">
+
+        <div class="logo">Finance VN</div>
+
+        <div class="menu">
+            <a href="#about">Giới thiệu</a>
+            <a href="#services">Dịch vụ</a>
+            <a href="#process">Quy trình</a>
+            <a href="#reviews">Đánh giá</a>
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h1>
+            Giải pháp tài chính 
+            <span class="gradient">thông minh</span>
+            cho người Việt
+        </h1>
+
+        <p>
+            Finance VN là nền tảng giới thiệu các giải pháp tài chính online hiện đại, 
+            hỗ trợ đăng ký nhanh chóng và tối ưu trải nghiệm trên mọi thiết bị.
+        </p>
+
+        <div class="hero-btns">
+
+            <a href="#services" class="btn btn-primary">
+                Khám phá ngay
+            </a>
+
+            <a href="#about" class="btn btn-secondary">
+                Tìm hiểu thêm
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-card">
+
+        <h3>🚀 Hỗ trợ online 24/7</h3>
+
+        <p>
+            Trải nghiệm giao diện hiện đại, thao tác đơn giản và hệ thống xử lý nhanh chóng.
+        </p>
+
+        <div class="stats">
+
+            <div class="stat">
+                <h2>100K+</h2>
+                <span>Người dùng</span>
+            </div>
+
+            <div class="stat">
+                <h2>24/7</h2>
+                <span>Hoạt động</span>
+            </div>
+
+            <div class="stat">
+                <h2>99%</h2>
+                <span>Hài lòng</span>
+            </div>
+
+            <div class="stat">
+                <h2>5★</h2>
+                <span>Đánh giá</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<div class="container" id="about">
+
+    <div class="section-title">
+
+        <h2>Tại sao chọn Finance VN?</h2>
+
+        <p>
+            Nền tảng hiện đại với tốc độ nhanh, tối ưu cho người dùng di động và bảo mật thông tin.
+        </p>
+
+    </div>
+
+    <div class="features">
+
+        <div class="feature">
+
+            <div class="feature-icon">⚡</div>
+
+            <h3>Xử lý nhanh</h3>
+
+            <p>
+                Hệ thống phản hồi tự động giúp tiết kiệm thời gian đăng ký online.
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <div class="feature-icon">🔒</div>
+
+            <h3>Bảo mật an toàn</h3>
+
+            <p>
+                Thông tin được mã hóa và bảo vệ trong toàn bộ quá trình sử dụng.
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <div class="feature-icon">📱</div>
+
+            <h3>Tối ưu điện thoại</h3>
+
+            <p>
+                Thiết kế responsive hiển thị đẹp trên mọi thiết bị di động.
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <div class="feature-icon">💎</div>
+
+            <h3>Giao diện hiện đại</h3>
+
+            <p>
+                Hiệu ứng đẹp mắt kết hợp màu sắc chuyên nghiệp và sang trọng.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- SERVICES -->
+
+<div class="container" id="services">
+
+    <div class="section-title">
+
+        <h2>Đối tác nổi bật</h2>
+
+        <p>
+            Khám phá các nền tảng tài chính trực tuyến được nhiều người lựa chọn.
+        </p>
+
+    </div>
+
+    <div class="services">
+
+        <!-- CREDILO -->
+
+        <div class="service-card">
+
+            <div class="tag">MỚI</div>
+
+            <h3>Credilo</h3>
+
+            <ul>
+                <li>✔ Đăng ký online nhanh</li>
+                <li>✔ Hỗ trợ trực tuyến 24/7</li>
+                <li>✔ Thao tác đơn giản</li>
+                <li>✔ Quy trình hiện đại</li>
+            </ul>
+
+            <a href="#" class="card-btn">
+                Đăng ký ngay
+            </a>
+
+        </div>
+
+        <!-- MAZILLA -->
+
+        <div class="service-card">
+
+            <div class="tag">HOT</div>
+
+            <h3>Mazilla</h3>
+
+            <ul>
+                <li>✔ Duyệt hồ sơ nhanh</li>
+                <li>✔ Hỗ trợ online hoàn toàn</li>
+                <li>✔ Bảo mật thông tin</li>
+                <li>✔ Tối ưu trải nghiệm mobile</li>
+            </ul>
+
+            <a href="#" class="card-btn">
+                Đăng ký ngay
+            </a>
+
+        </div>
+
+        <!-- CASHONLINE -->
+
+        <div class="service-card">
+
+            <div class="tag">ƯU TIÊN</div>
+
+            <h3>Cashonline</h3>
+
+            <ul>
+                <li>✔ Hệ thống xét duyệt tự động</li>
+                <li>✔ Đăng ký trực tuyến dễ dàng</li>
+                <li>✔ Hỗ trợ nhanh chóng</li>
+                <li>✔ Giao diện thân thiện</li>
+            </ul>
+
+            <a href="#" class="card-btn">
+                Đăng ký ngay
+            </a>
+
+        </div>
+
+        <!-- CREDI -->
+
+        <div class="service-card">
+
+            <div class="tag">DUYỆT CAO</div>
+
+            <h3>Credy</h3>
+
+            <ul>
+                <li>✔ Quy trình đơn giản</li>
+                <li>✔ Không cần gặp mặt</li>
+                <li>✔ Hỗ trợ online nhanh</li>
+                <li>✔ Thông tin bảo mật</li>
+            </ul>
+
+            <a href="#" class="card-btn">
+                Đăng ký ngay
+            </a>
+
+        </div>
+
+        <!-- FINAMI -->
+
+        <div class="service-card">
+
+            <div class="tag">TIN DÙNG</div>
+
+            <h3>Finami</h3>
+
+            <ul>
+                <li>✔ Hỗ trợ người dùng mới</li>
+                <li>✔ Đăng ký mọi lúc mọi nơi</li>
+                <li>✔ Hệ thống xử lý nhanh</li>
+                <li>✔ Thiết kế hiện đại</li>
+            </ul>
+
+            <a href="#" class="card-btn">
+                Đăng ký ngay
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- PROCESS -->
+
+<div class="container" id="process">
+
+    <div class="section-title">
+
+        <h2>Quy trình sử dụng</h2>
+
+        <p>
+            Chỉ với vài bước đơn giản để trải nghiệm Finance VN.
+        </p>
+
+    </div>
+
+    <div class="process">
+
+        <div class="process-box">
+
+            <div class="process-number">1</div>
+
+            <h3>Chọn dịch vụ</h3>
+
+            <p>
+                Lựa chọn giải pháp phù hợp với nhu cầu của bạn.
+            </p>
+
+        </div>
+
+        <div class="process-box">
+
+            <div class="process-number">2</div>
+
+            <h3>Điền thông tin</h3>
+
+            <p>
+                Hoàn tất biểu mẫu đăng ký trực tuyến nhanh chóng.
+            </p>
+
+        </div>
+
+        <div class="process-box">
+
+            <div class="process-number">3</div>
+
+            <h3>Xét duyệt</h3>
+
+            <p>
+                Hệ thống hỗ trợ xử lý và phản hồi trong thời gian ngắn.
+            </p>
+
+        </div>
+
+        <div class="process-box">
+
+            <div class="process-number">4</div>
+
+            <h3>Nhận kết quả</h3>
+
+            <p>
+                Theo dõi kết quả trực tiếp trên hệ thống mọi lúc mọi nơi.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- REVIEWS -->
+
+<div class="container" id="reviews">
+
+    <div class="section-title">
+
+        <h2>Người dùng đánh giá</h2>
+
+        <p>
+            Phản hồi tích cực từ khách hàng đã trải nghiệm nền tảng.
+        </p>
+
+    </div>
+
+    <div class="review-grid">
+
+        <div class="review">
+
+            ⭐⭐⭐⭐⭐
+
+            <p>
+                “Thiết kế đẹp, thao tác rất dễ và hiển thị cực mượt trên điện thoại.”
+            </p>
+
+            <strong>— Minh Anh</strong>
+
+        </div>
+
+        <div class="review">
+
+            ⭐⭐⭐⭐⭐
+
+            <p>
+                “Đăng ký online nhanh chóng và giao diện rất chuyên nghiệp.”
+            </p>
+
+            <strong>— Hoàng Nam</strong>
+
+        </div>
+
+        <div class="review">
+
+            ⭐⭐⭐⭐
+
+            <p>
+                “Hiệu ứng đẹp mắt và cảm giác hiện đại hơn nhiều website khác.”
+            </p>
+
+            <strong>— Tuấn Kiệt</strong>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CTA -->
+
+<div class="container">
+
+    <div class="cta">
+
+        <h2>Bắt đầu cùng Finance VN</h2>
+
+        <p>
+            Trải nghiệm nền tảng tài chính trực tuyến hiện đại với giao diện đẹp và tốc độ nhanh.
+        </p>
+
+        <a href="#" class="btn btn-primary">
+            Khám phá ngay
+        </a>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    © 2026 Finance VN — Nền tảng giới thiệu giải pháp tài chính trực tuyến.
+
+    <br><br>
+
+    ⚠️ Website mang tính chất giới thiệu và hỗ trợ thông tin dịch vụ tài chính online.
+
+</footer>
+
+</body>
+</html>
